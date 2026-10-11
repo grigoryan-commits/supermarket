@@ -1,0 +1,27 @@
+{% extends 'main/base.html' %}
+
+{% block content %}
+{% include 'main/includes/db_nav.html' %}
+<h1 class="title">Категории</h1>
+
+<div class="db">
+    <section class="db__form">
+        <h2 class="subtitle">Новая категория</h2>
+        {% include 'main/includes/form.html' %}
+    </section>
+
+    <section class="db__list">
+        <h2 class="subtitle">Все записи ({{ records|length }})</h2>
+        {% if records %}
+        <table class="table">
+            <tr><th>№</th><th>Название</th><th>Описание</th><th>Товаров</th></tr>
+            {% for item in records %}
+            <tr><td>{{ item.pk }}</td><td>{{ item.name }}</td><td>{{ item.description|default:"—" }}</td><td>{{ item.count }}</td></tr>
+            {% endfor %}
+        </table>
+        {% else %}
+        <p class="empty">Записей пока нет.</p>
+        {% endif %}
+    </section>
+</div>
+{% endblock %}

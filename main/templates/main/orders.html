@@ -1,0 +1,27 @@
+{% extends 'main/base.html' %}
+
+{% block content %}
+{% include 'main/includes/db_nav.html' %}
+<h1 class="title">Заказы</h1>
+
+<div class="db">
+    <section class="db__form">
+        <h2 class="subtitle">Новый заказ</h2>
+        {% include 'main/includes/form.html' with button='Оформить заказ' %}
+    </section>
+
+    <section class="db__list">
+        <h2 class="subtitle">Все записи ({{ records|length }})</h2>
+        {% if records %}
+        <table class="table">
+            <tr><th>№</th><th>Покупатель</th><th>Товары</th><th>Адрес</th><th>Доставка</th><th>Сумма</th></tr>
+            {% for item in records %}
+            <tr><td>{{ item.pk }}</td><td>{{ item.customer }}</td><td>{% for product in item.products.all %}{{ product }}{% if not forloop.last %}, {% endif %}{% endfor %}</td><td>{{ item.address }}</td><td>{{ item.delivery_date|date:"d.m.Y" }}</td><td>{{ item.total }} ₽</td></tr>
+            {% endfor %}
+        </table>
+        {% else %}
+        <p class="empty">Записей пока нет.</p>
+        {% endif %}
+    </section>
+</div>
+{% endblock %}

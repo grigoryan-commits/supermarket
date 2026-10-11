@@ -6,6 +6,7 @@
             <a href="{% url 'main:index' %}" class="nav__link{% if request.resolver_match.url_name == 'index' %} nav__link--active{% endif %}">Главная</a>
             <a href="{% url 'main:catalog' %}" class="nav__link{% if request.resolver_match.url_name == 'catalog' %} nav__link--active{% endif %}">Каталог</a>
             <a href="{% url 'main:about' %}" class="nav__link{% if request.resolver_match.url_name == 'about' %} nav__link--active{% endif %}">О нас</a>
+            <a href="{% url 'main:database' %}" class="nav__link{% if '/db/' in request.path %} nav__link--active{% endif %}">База данных</a>
         </nav>
     </div>
 </header>

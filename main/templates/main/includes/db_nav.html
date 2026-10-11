@@ -1,0 +1,8 @@
+<div class="tabs">
+    <a href="{% url 'main:categories' %}" class="tabs__link{% if request.resolver_match.url_name == 'categories' %} tabs__link--active{% endif %}">Категории</a>
+    <a href="{% url 'main:suppliers' %}" class="tabs__link{% if request.resolver_match.url_name == 'suppliers' %} tabs__link--active{% endif %}">Поставщики</a>
+    <a href="{% url 'main:products' %}" class="tabs__link{% if request.resolver_match.url_name == 'products' %} tabs__link--active{% endif %}">Товары</a>
+    <a href="{% url 'main:nutrition' %}" class="tabs__link{% if request.resolver_match.url_name == 'nutrition' %} tabs__link--active{% endif %}">Пищевая ценность</a>
+    <a href="{% url 'main:customers' %}" class="tabs__link{% if request.resolver_match.url_name == 'customers' %} tabs__link--active{% endif %}">Покупатели</a>
+    <a href="{% url 'main:orders' %}" class="tabs__link{% if request.resolver_match.url_name == 'orders' %} tabs__link--active{% endif %}">Заказы</a>
+</div>

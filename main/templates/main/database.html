@@ -1,0 +1,16 @@
+{% extends 'main/base.html' %}
+
+{% block content %}
+<h1 class="title">База данных магазина</h1>
+<p class="lead">Таблицы созданы с помощью моделей Django. На странице каждой таблицы можно добавить запись и посмотреть все записи.</p>
+
+<div class="cards">
+    {% for url, name, count, text in tables %}
+    <a href="{% url url %}" class="card card--link">
+        <h3 class="card__name">{{ name }}</h3>
+        <p class="card__text">{{ text }}</p>
+        <p class="card__price">Записей: {{ count }}</p>
+    </a>
+    {% endfor %}
+</div>
+{% endblock %}

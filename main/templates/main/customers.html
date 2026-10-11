@@ -1,0 +1,27 @@
+{% extends 'main/base.html' %}
+
+{% block content %}
+{% include 'main/includes/db_nav.html' %}
+<h1 class="title">Покупатели</h1>
+
+<div class="db">
+    <section class="db__form">
+        <h2 class="subtitle">Новый покупатель</h2>
+        {% include 'main/includes/form.html' %}
+    </section>
+
+    <section class="db__list">
+        <h2 class="subtitle">Все записи ({{ records|length }})</h2>
+        {% if records %}
+        <table class="table">
+            <tr><th>№</th><th>ФИО</th><th>Телефон</th><th>E-mail</th><th>Дата рождения</th><th>Заказов</th></tr>
+            {% for item in records %}
+            <tr><td>{{ item.pk }}</td><td>{{ item.full_name }}</td><td>{{ item.phone }}</td><td>{{ item.email }}</td><td>{{ item.birth_date|date:"d.m.Y" }}</td><td>{{ item.count }}</td></tr>
+            {% endfor %}
+        </table>
+        {% else %}
+        <p class="empty">Записей пока нет.</p>
+        {% endif %}
+    </section>
+</div>
+{% endblock %}
