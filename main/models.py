@@ -60,8 +60,8 @@ class Nutrition(models.Model):
     shelf_life = models.PositiveIntegerField('Срок годности, дней')
 
     class Meta:
-        verbose_name = 'Пищевая ценность'
-        verbose_name_plural = 'Пищевая ценность'
+        verbose_name = 'Пищевая ценность товара'
+        verbose_name_plural = 'Пищевая ценность товаров'
         ordering = ['product__name']
 
     def __str__(self):
@@ -101,3 +101,5 @@ class Order(models.Model):
 
     def total(self):
         return sum(product.price for product in self.products.all())
+
+    total.short_description = 'Сумма, ₽'

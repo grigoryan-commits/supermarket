@@ -24,6 +24,14 @@
   }
 },
 {
+  "model": "main.category",
+  "pk": 4,
+  "fields": {
+    "name": "Бакалея",
+    "description": "Крупы, макароны, мука и сахар"
+  }
+},
+{
   "model": "main.supplier",
   "pk": 1,
   "fields": {
@@ -51,6 +59,16 @@
     "inn": "772312345678",
     "phone": "+79031112233",
     "email": "sokolova.bakery@mail.ru"
+  }
+},
+{
+  "model": "main.supplier",
+  "pk": 4,
+  "fields": {
+    "name": "ООО «ВкусДом»",
+    "inn": "7701234567",
+    "phone": "+79165554433",
+    "email": "info@vkusdom.ru"
   }
 },
 {
@@ -126,6 +144,18 @@
   }
 },
 {
+  "model": "main.product",
+  "pk": 7,
+  "fields": {
+    "name": "Гречка ядрица",
+    "category": 4,
+    "supplier": 4,
+    "price": "95.00",
+    "unit": "кг",
+    "stock": 150
+  }
+},
+{
   "model": "main.nutrition",
   "pk": 1,
   "fields": {
@@ -162,6 +192,18 @@
   }
 },
 {
+  "model": "main.nutrition",
+  "pk": 4,
+  "fields": {
+    "product": 7,
+    "calories": 313,
+    "proteins": "12.6",
+    "fats": "3.3",
+    "carbs": "57.1",
+    "shelf_life": 365
+  }
+},
+{
   "model": "main.customer",
   "pk": 1,
   "fields": {
@@ -179,6 +221,26 @@
     "phone": "+79257654321",
     "email": "petrov.ai@yandex.ru",
     "birth_date": "1985-11-03"
+  }
+},
+{
+  "model": "main.customer",
+  "pk": 3,
+  "fields": {
+    "full_name": "Сидорова Анна Викторовна",
+    "phone": "+79261112233",
+    "email": "anna.sidorova@gmail.com",
+    "birth_date": "2001-08-25"
+  }
+},
+{
+  "model": "main.customer",
+  "pk": 4,
+  "fields": {
+    "full_name": "Кузнецов Дмитрий Олегович",
+    "phone": "+79037778899",
+    "email": "kuznetsov.do@mail.ru",
+    "birth_date": "1995-02-14"
   }
 },
 {
@@ -207,6 +269,21 @@
     "products": [
       2,
       4
+    ]
+  }
+},
+{
+  "model": "main.order",
+  "pk": 3,
+  "fields": {
+    "customer": 3,
+    "address": "Москва, ул. Вавилова, д. 12, кв. 34",
+    "delivery_date": "2026-10-13",
+    "created": "2026-10-11T19:57:01.598Z",
+    "products": [
+      7,
+      3,
+      5
     ]
   }
 }

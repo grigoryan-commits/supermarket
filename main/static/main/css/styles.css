@@ -418,3 +418,13 @@ body {
         grid-template-columns: 1fr;
     }
 }
+
+.nav__link--admin {
+    border: 1px solid #4ade80;
+    color: #4ade80;
+}
+
+.nav__link--admin:hover {
+    background: #4ade80;
+    color: #14532d;
+}
